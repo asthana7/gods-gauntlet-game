@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>God's Gauntlet</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        h1 {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+        }
+        
+        #loading {
+            color: white;
+            font-size: 18px;
+            margin: 20px;
+        }
+        
+        #pygame-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        
+        canvas {
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+    <h1>🎮 God's Gauntlet</h1>
+    <div id="loading">Loading game...</div>
+    <div id="pygame-container"></div>
+    
+    <script src="https://cdn.jsdelivr.net/gh/pygame-web/pygbag@0.8.7/static/pythons.js"></script>
+    <script>
+        // Configure Pygbag
+        const config = {
+            cacheName: 'gods-gauntlet-v1',
+            pkg: [
+                'main.py'  // Your main game file
+            ]
+        };
+        
+        // Initialize Pygbag
+        pythons.then(() => {
+            document.getElementById('loading').textContent = 'Game loaded! Starting...';
+            setTimeout(() => {
+                document.getElementById('loading').style.display = 'none';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
